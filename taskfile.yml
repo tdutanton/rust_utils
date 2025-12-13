@@ -1,0 +1,62 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Собрать проект (debug)
+    cmds:
+      - cargo build
+
+  run:
+    desc: Собрать и запустить проект
+    cmds:
+      - cargo run
+
+  check:
+    desc: Быстрая проверка кода без генерации бинарника
+    cmds:
+      - cargo check
+
+  build-release:
+    desc: Собрать релизную версию с оптимизациями
+    cmds:
+      - cargo build --release
+
+  run-release:
+    desc: Запустить релизную версию
+    cmds:
+      - cargo run --release
+
+  test:
+    desc: Запустить все тесты
+    cmds:
+      - cargo test
+
+  fmt:
+    desc: Автоматически отформатировать код в соответствии с rustfmt
+    cmds:
+      - cargo fmt
+
+  fmt-check:
+    desc: Проверить, соответствует ли код стилю rustfmt (без изменения файлов)
+    cmds:
+      - cargo fmt -- --check
+
+  clippy:
+    desc: Запустить Clippy — линтер для поиска антипаттернов и улучшений
+    cmds:
+      - cargo clippy
+
+  clippy-fix:
+    desc: Запустить Clippy с автоматическим исправлением безопасных предложений
+    cmds:
+      - cargo clippy --fix
+
+  clean:
+    desc: Удалить директорию target (очистка сборки)
+    cmds:
+      - cargo clean
+
+  help:
+    desc: Показать список задач
+    cmds:
+      - task --list-all
